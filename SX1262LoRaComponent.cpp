@@ -62,6 +62,14 @@ public:
             return false;
         }
 
+        if (c.dio1Pin >= 0)
+        {
+            m_Dio1Pin = static_cast<gpio_num_t>(c.dio1Pin);
+            gpio_config_t dio1 = {};
+            dio1.pin_bit_mask = 1ULL << c.dio1Pin;
+            dio1.mode = GPIO_MODE_INPUT;
+            gpio_config(&dio1);
+        }
         m_BusyPin = static_cast<gpio_num_t>(c.busyPin);
         m_ResetPin = static_cast<gpio_num_t>(c.resetPin);
         gpio_config_t busy = {};
@@ -87,12 +95,15 @@ public:
 
     void SetReset(bool high) override { gpio_set_level(m_ResetPin, high ? 1 : 0); }
     bool IsBusy() const override { return gpio_get_level(m_BusyPin) != 0; }
+    bool HasDio1() const override { return m_Dio1Pin != GPIO_NUM_NC; }
+    bool Dio1() const override { return gpio_get_level(m_Dio1Pin) != 0; }
     void DelayMs(uint32_t ms) override { vTaskDelay(pdMS_TO_TICKS(ms > 0 ? ms : 1)); }
     uint32_t NowMs() const override { return static_cast<uint32_t>(esp_timer_get_time() / 1000); }
 
 private:
     spi_device_handle_t m_Device = nullptr;
     gpio_num_t m_BusyPin = GPIO_NUM_NC;
+    gpio_num_t m_Dio1Pin = GPIO_NUM_NC;
     gpio_num_t m_ResetPin = GPIO_NUM_NC;
 };
 

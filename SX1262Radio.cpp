@@ -412,6 +412,14 @@ void SX1262Radio::ReadPacket()
 
 void SX1262Radio::Update()
 {
+    // DIO1 low: no interrupt, so nothing to read, and the bus is left alone.
+    // Only a send that never finished needs the chip then.
+    if (m_Bus.HasDio1() && !m_Bus.Dio1() &&
+        !(m_Sending && m_Bus.NowMs() - m_SendStartedMs > m_SendAirtimeMs * 2 + 500))
+    {
+        return;
+    }
+
     const uint8_t getIrq[] = { kGetIrqStatus, 0, 0, 0 };
     uint8_t rx[sizeof(getIrq)] = {};
     if (!Command(getIrq, sizeof(getIrq), rx))

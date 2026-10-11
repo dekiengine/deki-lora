@@ -53,6 +53,12 @@ public:
     int32_t resetPin = 17;
 
     DEKI_EXPORT
+    DEKI_TOOLTIP("The radio's DIO1 pin, its interrupt line (-1: not wired). With it, the radio is asked over SPI only "
+                 "when it has something to say, rather than every frame.")
+    DEKI_RANGE(-1, 48)
+    int32_t dio1Pin = 45;
+
+    DEKI_EXPORT
     DEKI_TOOLTIP("SPI clock. The SX1262 takes up to 16 MHz.")
     DEKI_RANGE(100000, 16000000)
     int32_t spiHz = 8000000;

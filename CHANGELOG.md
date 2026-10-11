@@ -16,3 +16,6 @@ alongside one that has them.
   packets with RSSI and SNR, listens whenever it is not sending, and enforces
   a duty cycle (1% by default, Europe's 868 MHz rule). Joins an SPI bus the
   display already uses, as on the LilyGO T-Deck. ESP-IDF only.
+- `dio1Pin` (45, the T-Deck's): with the radio's interrupt line wired, the
+  radio is asked over SPI only when DIO1 is raised, rather than every frame
+  on a bus the display is sending frames on.

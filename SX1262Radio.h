@@ -29,6 +29,12 @@ public:
 
     virtual void DelayMs(uint32_t ms) = 0;
     virtual uint32_t NowMs() const = 0;
+
+    /// The DIO1 pin, which the driver routes every interrupt it uses to:
+    /// when it is wired, a low DIO1 means nothing happened and the chip is not
+    /// asked over SPI, which may be busy (sending the display a frame).
+    virtual bool HasDio1() const { return false; }
+    virtual bool Dio1() const { return true; }
 };
 
 struct SX1262Config
