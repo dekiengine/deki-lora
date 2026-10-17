@@ -35,5 +35,6 @@
     "Tx Power Dbm": "송신 출력 dBm",
     "Volts DIO3 gives the radio's TCXO; 0 when the board has a plain crystal instead. LilyGO boards: 1.8": "DIO3가 무선 모듈의 TCXO에 공급하는 전압(V)입니다. 보드가 일반 수정 발진자를 쓰는 경우 0입니다. LilyGO 보드: 1.8",
     "Wiring": "배선",
-    "Sets up a Semtech SX1262 LoRa radio on SPI.": "SPI에 연결된 Semtech SX1262 LoRa 무선 모듈을 설정합니다."
+    "Sets up a Semtech SX1262 LoRa radio on SPI.": "SPI에 연결된 Semtech SX1262 LoRa 무선 모듈을 설정합니다.",
+    "SX1262 LoRa": "SX1262 LoRa"
 }

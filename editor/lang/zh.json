@@ -35,5 +35,6 @@
     "Tx Power Dbm": "发射功率 dBm",
     "Volts DIO3 gives the radio's TCXO; 0 when the board has a plain crystal instead. LilyGO boards: 1.8": "DIO3 为无线电模块的 TCXO 提供的电压 (V)；开发板使用普通晶振时为 0。LilyGO 开发板：1.8",
     "Wiring": "接线",
-    "Sets up a Semtech SX1262 LoRa radio on SPI.": "通过 SPI 设置 Semtech SX1262 LoRa 无线模块。"
+    "Sets up a Semtech SX1262 LoRa radio on SPI.": "通过 SPI 设置 Semtech SX1262 LoRa 无线模块。",
+    "SX1262 LoRa": "SX1262 LoRa"
 }

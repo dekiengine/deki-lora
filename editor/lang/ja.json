@@ -35,5 +35,6 @@
     "Tx Power Dbm": "送信出力 dBm",
     "Volts DIO3 gives the radio's TCXO; 0 when the board has a plain crystal instead. LilyGO boards: 1.8": "DIO3 から無線モジュールの TCXO に与える電圧 (V) です。ボードが普通の水晶振動子を使う場合は 0 です。LilyGO のボード: 1.8",
     "Wiring": "配線",
-    "Sets up a Semtech SX1262 LoRa radio on SPI.": "SPI 接続の Semtech SX1262 LoRa 無線を設定します。"
+    "Sets up a Semtech SX1262 LoRa radio on SPI.": "SPI 接続の Semtech SX1262 LoRa 無線を設定します。",
+    "SX1262 LoRa": "SX1262 LoRa"
 }
