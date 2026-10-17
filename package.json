@@ -2,7 +2,7 @@
   "id": "deki-lora",
   "displayName": "LoRa (SX1262)",
   "description": "LoRa radio: an SX1262 driver with a duty-cycle limit, sending and receiving packets",
-  "minEngine": "0.18.0",
+  "minEngine": "0.19.0",
   "buildDefine": "DEKI_PACKAGE_LORA",
   "requires": [],
   "features": [],
