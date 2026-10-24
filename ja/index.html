@@ -57,7 +57,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">deki-lora<span id="projectnumber">&#160;0.19.0</span>
+   <div id="projectname">deki-lora<span id="projectnumber">&#160;0.20.2</span>
    </div>
    <div id="projectbrief">Deki パッケージリファレンス</div>
   </td>
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html',''
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="mainpage"></a></p>
 <p>LoRa 無線。パケットを送受信する Semtech SX1262 ドライバーで、デューティサイクル制限を組み込んでいます。</p>
-<p>リポジトリ: <a href="https://github.com/dekiengine/deki-lora">github.com/dekiengine/deki-lora</a> · 最新リリース: 0.19.0 · エンジン 0.19.0 以降が必要</p>
+<p>リポジトリ: <a href="https://github.com/dekiengine/deki-lora">github.com/dekiengine/deki-lora</a> · 最新リリース: 0.20.0 · エンジン 0.19.0 以降が必要</p>
 <p><span class="tt">DekiEditor --packages-add deki-lora &lt;project&gt;</span> か、パッケージマネージャーからインストールします。エンジン自身のコンポーネントと C++ API は <a href="https://dekiengine.github.io/docs/ja/">Deki のドキュメント</a>にあります。</p>
 <p>エディターでは <b>LoRa (SX1262)</b> と表示されます。</p>
 <h1 class="doxsection"><a class="anchor" id="components"></a>
@@ -173,28 +173,27 @@ SX1262LoRaComponent</h2>
 変更履歴</h1>
 <p>変更履歴は英語です。</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
-0.19.0</h2>
+0.20.0</h2>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+Fixed</h2>
+<ul>
+<li>The component display names the translation check had missed are translated into Japanese, Simplified Chinese and Korean.</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+0.19.0</h2>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
 Changed</h2>
 <ul>
 <li><span class="tt">minEngine</span> 0.19.0: built against engine 0.19.0, whose component metadata records the package each class is in. A build of this package from before does not load and is rebuilt.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
 Added</h2>
 <ul>
 <li>Japanese, Simplified Chinese and Korean: <span class="tt">editor/lang/ja.json</span>, <span class="tt">zh.json</span> and <span class="tt">ko.json</span> translate the names, tooltips and enum values this package's components show in the Inspector.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
-0.18.2</h2>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
-Added</h2>
-<ul>
-<li>The package: a Semtech SX1262 LoRa driver (<span class="tt">SX1262LoRaComponent</span> for the boot scene, <span class="tt">DekiLoRa::GetCurrent()</span> for game code). Sends and receives packets with RSSI and SNR, listens whenever it is not sending, and enforces a duty cycle (1% by default, Europe's 868 MHz rule). Joins an SPI bus the display already uses, as on the LilyGO T-Deck. ESP-IDF only.</li>
-<li><span class="tt">dio1Pin</span> (45, the T-Deck's): with the radio's interrupt line wired, the radio is asked over SPI only when DIO1 is raised, rather than every frame on a bus the display is sending frames on.</li>
-</ul>
 <p>それ以前のリリース: <a href="https://github.com/dekiengine/deki-lora/blob/master/CHANGELOG.md">CHANGELOG.md</a></p>
 <hr  />
-<p>パッケージのリフレクションデータから生成しています (エンジン 0.19.0)。プロパティ名はシーンファイルで使われるキーです。名前を変えても別名が残ります (<a href="https://github.com/dekiengine/deki-editor/blob/master/COMPATIBILITY.md">互換性</a>)。 </p>
+<p>パッケージのリフレクションデータから生成しています (エンジン 0.20.2)。プロパティ名はシーンファイルで使われるキーです。名前を変えても別名が残ります (<a href="https://github.com/dekiengine/deki-editor/blob/master/COMPATIBILITY.md">互換性</a>)。 </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
