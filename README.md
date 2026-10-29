@@ -57,3 +57,7 @@ and `GetCurrent()` stays `nullptr`.
 ## Namespace
 
 Types live in `DekiLora`.
+
+## Community
+
+Questions, ideas and what you made with Deki: [the Deki Discord](https://dekiengine.com/discord/).
