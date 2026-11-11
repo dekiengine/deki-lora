@@ -6,6 +6,7 @@
 #include <deki/LogSystem.h>
 
 #include <cstddef>
+#include <memory>
 #include <string>
 
 #if defined(ESP32)
@@ -121,11 +122,10 @@ void SX1262LoRaComponent::Setup(SetupCallback onComplete)
     if (!s_Radio)
     {
         std::string error;
-        auto* bus = new EspSx126xBus();
+        std::unique_ptr<EspSx126xBus> bus(new EspSx126xBus());
         if (!bus->Begin(*this, error))
         {
             DEKI_LOG_ERROR("SX1262LoRaComponent: SPI for the radio: %s", error.c_str());
-            delete bus;
             onComplete(false);
             return;
         }
@@ -152,20 +152,18 @@ void SX1262LoRaComponent::Setup(SetupCallback onComplete)
         config.dio2AsRfSwitch = dio2AsRfSwitch;
         config.dutyCyclePercent = dutyCyclePercent;
 
-        auto* radio = new SX1262Radio(*bus);
+        std::unique_ptr<SX1262Radio> radio(new SX1262Radio(*bus));
         if (!radio->Begin(config, error))
         {
             DEKI_LOG_ERROR("SX1262LoRaComponent: %s", error.c_str());
-            delete radio;
-            delete bus;
             onComplete(false);
             return;
         }
-        s_Bus = bus;
-        s_Radio = radio;
+        s_Bus = bus.release();
+        s_Radio = radio.release();
         DEKI_LOG_INFO("SX1262LoRaComponent: listening on %.3f MHz, SF%d, %d kHz, %d dBm, %.1f%% duty cycle",
-                      frequencyHz / 1e6, (int)spreadingFactor, (int)bandwidthKHz, (int)txPowerDbm,
-                      (double)dutyCyclePercent);
+                      frequencyHz / 1e6, static_cast<int>(spreadingFactor), static_cast<int>(bandwidthKHz),
+                      static_cast<int>(txPowerDbm), static_cast<double>(dutyCyclePercent));
     }
 
     DekiLoRa::SetCurrent(s_Radio);
